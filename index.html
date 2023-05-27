@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Checkboxes and Pay Now Button</title>
+	<style>
+		.container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 50px;
+		}
+
+		h2 {
+			margin-bottom: 20px;
+			font-weight: bold;
+			font-size: 24px;
+			color: #333;
+			text-align: center;
+		}
+
+		form {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			margin-bottom: 30px;
+		}
+
+		label {
+			display: flex;
+			align-items: center;
+			margin-right: 20px;
+			margin-bottom: 10px;
+			font-size: 22px;
+			color: #333;
+		}
+
+
+		input[type="checkbox"] {
+      transform: scale(2);
+			margin-right: 10px;
+		}
+
+		#amount {
+			font-size: 20px;
+			font-weight: bold;
+			color: #333;
+			margin-bottom: 20px;
+		}
+
+		#pay-now {
+			background-color: #4CAF50;
+			color: white;
+			padding: 10px 20px;
+			font-size: 16px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			transition: background-color 0.2s ease-in-out;
+		}
+
+		#pay-now:hover {
+			background-color: #3e8e41;
+		}
+
+		#pay-now:active {
+			background-color: #3e8e41;
+			transform: translateY(2px);
+		}
+
+		#pay-now-label {
+			font-size: 16px;
+			color: #333;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h2>Choose your Subjects:</h2>
+		<form>
+			<label><input type="checkbox" name="payment" value="paypal" onchange="calculateAmount()"> ANN</label>
+			<label><input type="checkbox" name="payment" value="credit_card" onchange="calculateAmount()"> NLP</label>
+			<label><input type="checkbox" name="payment" value="debit_card" onchange="calculateAmount()"> IAI</label>
+			<label><input type="checkbox" name="payment" value="bitcoin" onchange="calculateAmount()"> Robotics</label>
+			<label><input type="checkbox" name="payment" value="apple_pay" onchange="calculateAmount()"> CC</label>
+			<label><input type="checkbox" name="payment" value="google_pay" onchange="calculateAmount()"> PDBS</label>
+			<label><input type="checkbox" name="payment" value="amazon_pay" onchange="calculateAmount()"> CN</label>
+			<label><input type="checkbox" name="payment" value="venmo" onchange="calculateAmount()"> OE</label>
+		</form>
+
+		<div id="amount"></div>
+    <button id="pay-now" style="display: none;" onclick="window.location.href='https://imjo.in/Hs6WZA'">Pay Now</button>
+
+		<label id="pay-now-label"></label>
+	</div>
+
+	<script>
+
+  function calculateAmount() {
+  var checkboxes = document.getElementsByName("payment");
+  var total = 0;
+  for (var i = 0; i < checkboxes.length; i++) {
+    if (checkboxes[i].checked) {
+      total++;
+    }
+  }
+  var amountDiv = document.getElementById("amount");
+  var payNowButton = document.getElementById("pay-now");
+  var payNowLabel = document.getElementById("pay-now-label");
+  if (total == 0) {
+    amountDiv.innerText = "Your exam amount is 0 rupees";
+    payNowButton.style.display = "none";
+    payNowLabel.innerText = "";
+  } else if (total == 1) {
+    amountDiv.innerText = "Your exam amount is 300 rupees";
+    payNowButton.style.display = "block";
+
+  } else if (total == 2) {
+    amountDiv.innerText = "Your exam amount is 400 rupees";
+    payNowButton.style.display = "block";
+
+  } else {
+    amountDiv.innerText = "Your exam amount is 500 rupees";
+    payNowButton.style.display = "block";
+    
+  }
+
+  // Redirect to success.html after payment is completed
+  document.getElementById("pay-now").addEventListener("click", function() {
+    var amountDiv = document.getElementById("amount");
+    if (amountDiv.innerText === "Your exam amount is 300 rupees") {
+      window.location.href = "https://imjo.in/Hs6WZA";
+    } else if (amountDiv.innerText === "Your exam amount is 400 rupees") {
+      window.location.href = "https://imjo.in/tdGegX";
+    } else if (amountDiv.innerText === "Your exam amount is 500 rupees") {
+      window.location.href = "https://imjo.in/PVtKaM";
+    }
+  });
+}
+
+
+
+
+</script>
+</body>
+</html>
